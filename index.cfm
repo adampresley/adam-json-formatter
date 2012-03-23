@@ -75,7 +75,7 @@
 
 		<h2>Technology</h2>
 		<p>
-			This code is written in ColdFusion running on <a href="http://openbluedragon.org">OpenBD version 1.4</a>.
+			This code is written in ColdFusion running on <a href="http://openbluedragon.org">OpenBD version 2.03b</a>.
 			It uses <a href="http://json-lib.sourceforge.net">JSON-lib</a> to handle parsing and beautification
 			of JSON data. It also makes use of <a href="http://www.jquery.com">jQuery</a> and 
 			<a href="http://jqueryui.com/">jQueryUI</a>. You may also have the <a href="jsonformatter.zip">source code</a>, licensed under GPL 3.
