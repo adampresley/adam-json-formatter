@@ -121,7 +121,7 @@ JsonFormatterPage = function() {
 		$(rendered).appendTo("#results");
 		$(newDialog.handle).dialog({
 			width: 725,
-			height: 550,
+			height: 660,
 			open: function(e, ui) {
 				if ($("#chkGridResults").attr("checked")) {
 					$("#grid_" + newDialog.windowId).dataTable({ "sPaginationType": "full_numbers" });

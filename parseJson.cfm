@@ -40,9 +40,13 @@
 	</cfif>
 
 	<cfif !rc.grid>
-		<cfset JSONArray = createObject("java", "net.sf.json.JSONArray") />
-		<cfset serializer = JSONArray.fromObject(jsonToParse) />
-
+		<cfif trim(left(jsonToParse, 1)) EQ "[">
+			<cfset JSON = createObject("java", "net.sf.json.JSONArray") />
+		<cfelse>
+			<cfset JSON = createObject("java", "net.sf.json.JSONObject") />
+		</cfif>
+		
+		<cfset serializer = JSON.fromObject(jsonToParse) />
 		<cfset output = serializer.toString(3, 0) />
 	<cfelse>
 		<cfset output = jsonToParse />
@@ -50,6 +54,7 @@
 
 <cfcatch>
 	<cfset output = "{ ""success"": 0, ""message"": ""Something bad has happened while trying to parse your JSON. Sorry!"" }" />
+	<cfset writeLog(text = "parseJson.cfm: #cfcatch.message#", type = "Error", log = "application") />
 	<cfheader statuscode="500" statustext="Something bad has happened while trying to parse your JSON. Sorry!" />
 </cfcatch>
 </cftry>
